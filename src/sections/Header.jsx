@@ -40,7 +40,7 @@ export default function Header() {
         <h1 className="header-name">Anil Prakash</h1>
         <h2 className="header-title">Software Engineer</h2>
         <img
-          src="/assets/image.png"
+          src="Portfolio_NAP/public/assets/image.png"
           alt="Nikhil Anil Prakash"
           className="header-photo"
         />
