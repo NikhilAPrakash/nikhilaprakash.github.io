@@ -44,7 +44,7 @@ body {
   place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-  background: url('/Portfolio_NAP/assets/background2.avif') center/cover fixed no-repeat;
+  background: url('/assets/background2.avif') center/cover fixed no-repeat;
   margin: 0;
 }
 
