@@ -9,6 +9,8 @@ import lidar from '../assets/lidar_mapping.png';
 import lidarDoc from "../docs/ProjectReport_ComparitiveAnalysis_EECE5554.pdf";
 import ETC from '../docs/ETC.pdf';
 import etc from '../assets/etc.png';
+import bluebikes from '../assets/bluebikes.png';
+import bluebikes_arch from '../assets/bluebikes_arch.png';
 
 const projects = [
   {
@@ -18,25 +20,31 @@ const projects = [
     summary:
       "End-to-end pipeline to forecast bike demand and monitor geographic bias using Airflow and DVC.",
     bullets: [
-      "Ingested multi-source data (rides, weather, census) into a reproducible pipeline.",
-      "Trained gradient boosting models with hyperparameter tuning and bias evaluation.",
-      "Containerized workflow with Docker and scheduled in Airflow for daily runs."
+      "Designed and deployed an end-to-end MLOps pipeline for Bluebikes hourly demand prediction using Airflow, Docker, and GCP.",
+      "Implemented automated model training, bias mitigation, promotion, drift monitoring, and retraining triggers.",
+      "Built production-grade monitoring with Evidently AI, versioned baselines, alerting, and model lifecycle governance."
     ],
     tech: ["Python", "Pandas", "LightGBM", "Airflow", "DVC", "Docker"],
     github: "https://github.com/…",
     demo: "",
-    wip: true,
+    wip: false,
     details: {
       overview:
-        "This project builds a production-style pipeline to forecast station-level demand for BlueBikes and analyze fairness across neighborhoods.",
+        "A full-stack MLOps system for predicting Bluebikes bike-share demand in Boston, covering the complete machine learning lifecycle from data ingestion to production monitoring and automated retraining. The project emphasizes real-world deployment concerns including feature drift, prediction drift, performance decay, bias mitigation, model versioning, and operational alerting. The pipeline is designed to mirror industry-grade ML systems with reproducibility, observability, and reliability as first-class goals.",
       highlights: [
-        "Designed a modular data pipeline (collection → cleaning → feature engineering → model training → reporting) orchestrated via Airflow DAGs.",
-        "Used DVC to version datasets and models so experiments are reproducible and traceable.",
-        "Logged experiments and metrics for multiple models, then selected the best one for deployment.",
-        "Generated station-level bias reports comparing performance across demographic and geographic segments."
+        "Built a modular Airflow-based training pipeline integrating Bluebikes trip data, engineered temporal features, lag features, and external weather signals to predict hourly ride demand.",
+        "Implemented automated model selection and evaluation, logging RMSE, MAE, R², and bias metrics, followed by conditional promotion of bias-mitigated models to production.",
+        "Designed a training-data-based baseline generation system for monitoring, ensuring drift comparisons are grounded in the distribution the model actually learned from.",
+        "Developed a comprehensive drift monitoring DAG using Evidently AI, detecting data drift, prediction drift, and performance degradation with configurable severity thresholds.",
+        "Implemented versioned baselines, HTML and JSON monitoring reports, and persistent monitoring artifacts for auditability and reproducibility.",
+        "Integrated real-time alerting via Discord for warning and critical drift events, with cooldown logic and safeguards to prevent excessive retraining.",
+        "Closed the MLOps loop by automatically triggering retraining DAGs when critical drift or performance decay is detected, enforcing production-grade lifecycle management.",
+        "Deployed the system in Dockerized environments with clear separation of training, monitoring, and production concerns, following cloud-ready MLOps design principles."
       ],
       images: [
         // bluebikesImg
+        bluebikes,
+        bluebikes_arch,
       ]
     }
   },
