@@ -25,7 +25,7 @@ const projects = [
       "Built production-grade monitoring with Evidently AI, versioned baselines, alerting, and model lifecycle governance."
     ],
     tech: ["Python", "Pandas", "LightGBM", "Airflow", "DVC", "Docker"],
-    github: "https://github.com/…",
+    github: "https://github.com/PranavViswanathan/Optimizing-Bluebikes-Operations-with-Machine-Learning-Based-Demand-Prediction?tab=readme-ov-file",
     demo: "",
     wip: false,
     details: {
