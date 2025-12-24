@@ -1,7 +1,6 @@
 // src/sections/Header.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import './Header.css';
-// import photo from '../assets/photo.png';
 
 export default function Header() {
   // track visibility of left & right halves
@@ -38,7 +37,7 @@ export default function Header() {
         className={`header-left ${visible.left ? 'visible' : ''}`}
       >
         <img
-          src='/src/assets/photo.jpg'
+          src='/assets/photo.jpg'
           alt="Nikhil Anil Prakash"
           className="header-photo"
         />
