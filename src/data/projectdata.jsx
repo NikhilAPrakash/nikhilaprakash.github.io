@@ -10,7 +10,7 @@ import lidarDoc from "../docs/ProjectReport_ComparitiveAnalysis_EECE5554.pdf";
 import ETC from '../docs/ETC.pdf';
 import etc from '../assets/etc.png';
 import bluebikes from '../assets/bluebikes.png';
-import bluebikes_arch from '../assets/bluebikes_arch.png';
+import bluebikes_arch from '../assets/blubikes_arch.png';
 
 const projects = [
   {
