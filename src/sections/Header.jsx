@@ -1,6 +1,7 @@
 // src/sections/Header.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import './Header.css';
+// import photo from '../assets/photo.png';
 
 export default function Header() {
   // track visibility of left & right halves
@@ -36,14 +37,14 @@ export default function Header() {
         ref={leftRef}
         className={`header-left ${visible.left ? 'visible' : ''}`}
       >
-        <h1 className="header-name">Nikhil</h1>
-        <h1 className="header-name">Anil Prakash</h1>
-        <h2 className="header-title">Software Engineer</h2>
         <img
-          src="/public/assets/image.png"
+          src='/src/assets/photo.jpg'
           alt="Nikhil Anil Prakash"
           className="header-photo"
         />
+        <h1 className="header-name">Nikhil</h1>
+        <h1 className="header-name">Anil Prakash</h1>
+        <h2 className="header-title">Software Engineer</h2>
       </div>
 
       <div
