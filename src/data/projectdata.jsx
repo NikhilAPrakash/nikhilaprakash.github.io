@@ -87,7 +87,7 @@ const projects = [
     "Evaluated RMSE, MAE, NLL, and uncertainty calibration with comprehensive model comparison."
   ],
   tech: ["Python", "PyMC3", "scikit-learn", "TensorFlow/Keras", "NumPy", "Pandas"],
-  github: "https://github.com/msalmancodes/probabilistic-weather-models.git",
+  github: "https://github.com/NikhilAPrakash/weather_prediction.git",
   demo: "",
   docs: weatherDoc,
   details: {
