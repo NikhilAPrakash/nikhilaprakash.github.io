@@ -9,6 +9,8 @@ import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import Achievements from './sections/Achievements';
 import Contact from './sections/Contact';
+import ChatWidget from './components/ChatWidget';
+
 // import ExperienceSection from './sections/ExperienceSection';
 // …other imports
 
@@ -23,6 +25,7 @@ function App() {
     <Skills />
     <Achievements />
     <Contact />
+    <ChatWidget />
     </>
 
   );
