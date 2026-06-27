@@ -1,3 +1,9 @@
 node_modules/
 
 .env
+
+# Build output (published to gh-pages branch via `npm run deploy`)
+dist/
+
+# OS files
+.DS_Store

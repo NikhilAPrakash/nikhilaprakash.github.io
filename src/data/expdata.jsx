@@ -6,7 +6,7 @@ const experienceData = [
     duration: 'May 2025 – Aug 2025',
     location: 'Brentwood, TN',
     details: [
-      'Implemented an end-to-end SEO and performance monitoring system leveraging, Python-based crawling, data preprocessing, and anomaly detection pipelines',
+      'Implemented an end-to-end SEO and performance monitoring system leveraging Python-based crawling, data preprocessing, and anomaly detection pipelines',
       'Orchestrated the integration of rule-based and machine learning models to compute health score and detect site-level SEO/performance regressions',
       'Deployed an automated reporting framework that generates actionable insights via markdown reports, and dashboards, driving visibility into web vitals and metadata compliance'
     ],
