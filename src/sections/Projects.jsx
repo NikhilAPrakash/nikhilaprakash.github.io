@@ -54,7 +54,24 @@ const Projects = () => {
 
       <div className="projects-grid">
         {projects.map((proj) => (
-          <article key={proj.id} className="project-card">
+          <article
+            key={proj.id}
+            className={`project-card${proj.details ? " project-card-clickable" : ""}`}
+            onClick={proj.details ? () => openModal(proj) : undefined}
+            onKeyDown={
+              proj.details
+                ? (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openModal(proj);
+                    }
+                  }
+                : undefined
+            }
+            role={proj.details ? "button" : undefined}
+            tabIndex={proj.details ? 0 : undefined}
+            aria-label={proj.details ? `${proj.title} — view details` : undefined}
+          >
             <h3 className="project-title">{proj.title}</h3>
             <p className="project-role">{proj.role}</p>
             <p className="project-summary">{proj.summary}</p>
@@ -80,6 +97,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="project-btn"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   GitHub
                 </a>
@@ -91,19 +109,16 @@ const Projects = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="project-btn project-btn-secondary"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   Live Demo
                 </a>
               )}
 
               {proj.details && (
-                <button
-                  type="button"
-                  className="project-btn project-btn-secondary"
-                  onClick={() => openModal(proj)}
-                >
-                  More info
-                </button>
+                <span className="project-more-hint" aria-hidden="true">
+                  More info →
+                </span>
               )}
             </div>
           </article>

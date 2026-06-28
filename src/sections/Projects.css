@@ -1,37 +1,38 @@
-.projects-section {
-  padding: 5rem 1.5rem;
-}
+/* ═══════════════════════════════════════════════════════════════
+   Projects — Swiss editorial
+   ═══════════════════════════════════════════════════════════════ */
 
-.projects-heading {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 3rem;
+.projects-section {
+  padding: 6rem 1.5rem;
 }
 
 .projects-grid {
-  max-width: 1100px;
+  max-width: var(--maxw);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
-/* Card */
+/* ── Card ──────────────────────────────────────────────────── */
 .project-card {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  border-radius: 14px;
-  padding: 1.8rem 2rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-  color: #f5f7fa;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 2.2rem 2.2rem 2rem;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
 
-  /* fade / slide in defaults */
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out,
-    box-shadow 0.2s ease-out;
+    background 0.2s ease-out;
 }
 
 .project-card.visible {
@@ -40,82 +41,151 @@
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+  background: var(--paper-2);
+}
+
+/* Whole card acts as the trigger when the project has details */
+.project-card-clickable {
+  cursor: pointer;
+}
+
+.project-card-clickable:hover {
+  background: var(--paper-2);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.project-card-clickable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* "More info →" affordance — lights up with the card */
+.project-more-hint {
+  margin-left: auto;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.project-card-clickable:hover .project-more-hint,
+.project-card-clickable:focus-visible .project-more-hint {
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
 .project-title {
-  margin: 0 0 0.25rem;
-  font-size: 1.3rem;
-  font-weight: 600;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .project-role {
-  margin: 0 0 0.75rem;
-  font-size: 0.95rem;
-  color: #9aa4b2;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
 }
 
 .project-summary {
-  margin: 0 0 0.75rem;
-  font-size: 0.98rem;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
 .project-bullets {
-  margin: 0 0 0.75rem;
-  padding-left: 1.3rem;
+  margin: 0 0 1.2rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .project-bullets li {
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.project-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
-/* Tech chips */
+/* ── Tech chips ────────────────────────────────────────────── */
 .project-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 0.9rem;
+  margin: auto 0 1.2rem;
+  padding-top: 1.2rem;
 }
 
 .project-chip {
-  padding: 0.15rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid #1f6feb;
-  font-size: 0.8rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
 }
 
-/* Buttons */
+/* ── Buttons ───────────────────────────────────────────────── */
 .project-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 }
 
 .project-btn {
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  border: 1px solid var(--ink);
   text-decoration: none;
-  font-size: 0.9rem;
-  background: #1f6feb;
-  color: #f5f7fa;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--ink);
+  color: var(--paper);
   cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.project-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .project-btn-secondary {
   background: transparent;
-  border: 1px solid #1f6feb;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.project-btn-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* Modal backdrop with blur + fade-in */
+/* ── Modal ─────────────────────────────────────────────────── */
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
+  background: rgba(20, 19, 15, 0.45);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,111 +196,123 @@
 }
 
 @keyframes modalFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* Modal content with slide / scale in */
 .project-modal {
   position: relative;
-  max-width: 800px;
-  max-height: 80vh;
+  max-width: 780px;
+  max-height: 82vh;
   width: 90%;
-  background: rgba(7, 10, 20, 0.95);
-  border-radius: 16px;
-  padding: 2rem 2.2rem;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 2.4rem 2.4rem;
+  box-shadow: 16px 16px 0 rgba(20, 19, 15, 0.12);
   overflow-y: auto;
+  color: var(--ink);
 
   opacity: 0;
-  transform: translateY(12px) scale(0.97);
+  transform: translateY(12px);
   animation: modalSlideIn 0.25s ease-out forwards;
 }
 
 @keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .project-modal-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.9rem;
+  top: 0.9rem;
+  right: 1rem;
   border: none;
   background: transparent;
-  color: #f5f7fa;
+  color: var(--ink);
   font-size: 1.3rem;
   cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+.project-modal-close:hover {
+  color: var(--accent);
 }
 
 .project-modal-title {
-  margin: 0 0 0.25rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .project-modal-role {
-  margin: 0 0 0.75rem;
-  font-size: 0.95rem;
-  color: #9aa4b2;
+  margin: 0 0 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
 }
 
 .project-modal-overview {
-  margin-bottom: 0.9rem;
-  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
 }
 
 .project-modal-list {
-  margin: 0 0 1rem;
-  padding-left: 1.3rem;
+  margin: 0 0 1.2rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .project-modal-list li {
-  margin-bottom: 0.4rem;
-  line-height: 1.5;
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.project-modal-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 .project-modal-images {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.8rem;
 }
 
 .project-modal-images img {
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 0;
+  border: 1px solid var(--line);
 }
 
 .project-wip-badge {
-  background: #ffb100;
-  color: #000;
-  padding: 0.18rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  box-shadow: 0 0 12px rgba(255, 177, 0, 0.7);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
 }
 
-
-/* Mobile: 1 column */
+/* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-
   .project-modal {
-    padding: 1.5rem 1.6rem;
+    padding: 1.8rem 1.6rem;
   }
 }
-

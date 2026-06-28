@@ -1,44 +1,46 @@
-.ach-section {
-  padding: 5rem 1.5rem;
-}
+/* ═══════════════════════════════════════════════════════════════
+   Achievements & Certifications — Swiss editorial
+   ═══════════════════════════════════════════════════════════════ */
 
-.ach-heading {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 2rem;
+.ach-section {
+  padding: 6rem 1.5rem;
 }
 
 .ach-subheading {
-  max-width: 1100px;
-  margin: 0 auto 1rem auto;
-  font-size: 1.2rem;
-  font-weight: 600;
+  max-width: var(--maxw);
+  margin: 0 auto 1.4rem auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
 }
 
-/* Grid layout similar to Projects/Skills */
 .ach-grid {
-  max-width: 1100px;
+  max-width: var(--maxw);
   margin: 0 auto 2.5rem auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.8rem;
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .ach-card {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  border-radius: 14px;
-  padding: 1.6rem 1.9rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-  color: #f5f7fa;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 1.8rem 1.9rem;
+  color: var(--ink);
 
-  /* fade / slide defaults */
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out,
-    box-shadow 0.2s ease-out;
+    background 0.2s ease-out;
 }
 
 .ach-card.visible {
@@ -47,62 +49,70 @@
 }
 
 .ach-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+  background: var(--paper-2);
 }
 
 .ach-title {
-  margin: 0 0 0.25rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .ach-meta {
-  margin: 0 0 0.7rem;
-  font-size: 0.9rem;
-  color: #9aa4b2;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
 }
 
-/* Chips for skills on each cert */
 .ach-chip-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .ach-chip {
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid #1f6feb;
-  font-size: 0.8rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
   white-space: nowrap;
 }
 
-/* Link button */
 .ach-link-btn {
   display: inline-block;
-  margin-top: 0.2rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid #1f6feb;
+  margin-top: 0.3rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0;
+  border: 1px solid var(--ink);
   text-decoration: none;
-  font-size: 0.9rem;
-  color: #f5f7fa;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
   background: transparent;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
 .ach-link-btn:hover {
-  background: #1f6feb;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
 }
 
-/* Mobile: 1 column */
+/* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 900px) {
   .ach-grid {
     grid-template-columns: 1fr;
   }
-
   .ach-card {
-    padding: 1.4rem 1.6rem;
+    padding: 1.5rem 1.6rem;
   }
 }

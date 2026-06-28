@@ -1,42 +1,53 @@
+/* ═══════════════════════════════════════════════════════════════
+   NavBar — Swiss editorial
+   ═══════════════════════════════════════════════════════════════ */
+
 .navbar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
-  max-width: 1280px;
   z-index: 1000;
-  background: transparent;
-  backdrop-filter: blur(5px);
+  background: rgba(227, 220, 204, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-list {
   display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0.5rem 1rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: var(--maxw);
   list-style: none;
 }
 
 .nav-link {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #ddd;
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 500;
-  transition: color 0.2s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-bottom: 0.3rem;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #fff;
+  color: var(--ink);
 }
 
 .nav-link.active {
-  color: #00bfff;
-  border-bottom: 2px solid #00bfff;
-  padding-bottom: 0.25rem;
+  color: var(--ink);
+  border-bottom: 2px solid var(--accent);
 }
 
-/* Hamburger button - hidden on desktop */
+/* ── Hamburger (hidden on desktop) ─────────────────────────── */
 .hamburger {
   display: none;
   background: none;
@@ -48,17 +59,16 @@
 
 .hamburger span {
   display: block;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: 5px 0;
+  width: 26px;
+  height: 2px;
+  background: var(--ink);
+  margin: 6px 0;
   transition: 0.3s;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
-/* Hamburger animation when open */
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0;
@@ -67,17 +77,18 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== MOBILE STYLES ===== */
+/* ═══════════ MOBILE ═══════════ */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.5rem 1rem;
+    padding: 0;
   }
 
   .hamburger {
     display: block;
     position: absolute;
     right: 1rem;
-    top: 0.5rem;
+    top: 0.6rem;
+    background: transparent;
   }
 
   .nav-list {
@@ -86,13 +97,13 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
+    background: var(--paper);
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    
-    /* Hidden by default */
+    align-items: flex-start;
+    padding: 0 2.5rem;
+    gap: 1.8rem;
+
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
@@ -104,7 +115,7 @@
   }
 
   .nav-link {
-    font-size: 1.25rem;
-    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
   }
 }

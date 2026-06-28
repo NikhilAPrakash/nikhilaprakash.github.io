@@ -3,7 +3,7 @@ const EducationData = [
   {
     company: 'Northeastern University',
     role: 'M.S in Electrical and Computer Engineering',
-    duration: 'Jan 2024 – Present',
+    duration: 'Jan 2024 – Dec 2025',
     details: [
       'Concentration in Computer Vision, Machine Learning and Algorithms',
       'Relevant Coursework:',

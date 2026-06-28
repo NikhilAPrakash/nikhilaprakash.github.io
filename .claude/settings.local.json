@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git check-ignore *)",
+      "Bash(npx eslint *)",
+      "Bash(echo \"===EXIT $?===\")",
+      "Bash(npm run *)",
+      "Bash(git rm *)",
+      "Bash(echo \"=== eslint exit: $? ===\")",
+      "Bash(git ls-remote *)",
+      "Bash(git ls-tree *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(git config *)",
+      "Bash(echo \"eslint exit: $?\")",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}

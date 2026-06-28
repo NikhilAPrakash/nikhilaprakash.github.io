@@ -51,7 +51,20 @@ export default function Header() {
         className={`header-right ${visible.right ? 'visible' : ''}`}
       >
         <p className="header-about">
-          As a Master's student specializing in Computer Vision and Machine Learning at Northeastern University, I have developed expertise in SLAM algorithms, image processing, and statistical analysis through hands-on projects involving large-scale datasets and achieving significant improvements in model accuracy. My professional experience includes implementing end-to-end ML solutions using Python and React, developing ETL pipelines, and creating business intelligence dashboards. I am passionate about applying computer vision and machine learning to solve real-world problems, with a proven track record of delivering measurable impact through innovative technical solutions.
+          I'm an ML/AI engineer focused on building systems that hold up in
+          production, not prototypes that stall in a notebook. The assistant on
+          this site is one of mine - a retrieval-augmented application I built
+          end to end. Before that, I designed an MLOps pipeline for Boston's
+          Bluebikes bike-share: an end-to-end system that automates training,
+          drift detection, and deployment on GCP, with CI/CD and configurable
+          retraining.
+        </p>
+        <p className="header-about">
+          I hold an MS in Electrical &amp; Computer Engineering from
+          Northeastern. Across my work - ETL pipelines, ML-based anomaly
+          detection, BI dashboards - I keep gravitating to the unglamorous half
+          of the job: monitoring, retraining, and the failure modes nobody
+          planned for, because that's where a model becomes a product.
         </p>
       </div>
 
