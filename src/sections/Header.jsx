@@ -2,11 +2,64 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Header.css';
 
+const NAME_LINES = ['Nikhil', 'Anil Prakash'];
+const TYPE_SPEED = 95;    // ms per character
+const START_DELAY = 450;  // pause before the first key
+const LINE_DELAY = 400;   // extra pause between lines
+
+// total characters across all lines
+const TOTAL_CHARS = NAME_LINES.reduce((sum, line) => sum + line.length, 0);
+
+// index of the line currently being typed (last line once finished)
+function activeLineIndex(count) {
+  let acc = 0;
+  for (let i = 0; i < NAME_LINES.length; i++) {
+    acc += NAME_LINES[i].length;
+    if (count < acc) return i;
+  }
+  return NAME_LINES.length - 1;
+}
+
+// delay before advancing to the next character, given how many are shown
+function delayForCount(count) {
+  if (count === 0) return START_DELAY;
+  let acc = 0;
+  for (let i = 0; i < NAME_LINES.length - 1; i++) {
+    acc += NAME_LINES[i].length;
+    if (count === acc) return LINE_DELAY; // sitting at a line boundary
+  }
+  return TYPE_SPEED;
+}
+
 export default function Header() {
   // track visibility of left & right halves
   const [visible, setVisible] = useState({ left: false, right: false });
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+
+  // typewriter: how many characters of the name are revealed so far
+  const reduceMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const [typed, setTyped] = useState(reduceMotion ? TOTAL_CHARS : 0);
+
+  // advance one character at a time, starting once the hero is visible
+  useEffect(() => {
+    if (!visible.left || reduceMotion || typed >= TOTAL_CHARS) return;
+    const id = setTimeout(() => setTyped(c => c + 1), delayForCount(typed));
+    return () => clearTimeout(id);
+  }, [visible.left, typed, reduceMotion]);
+
+  const active = activeLineIndex(typed);
+  const typingDone = typed >= TOTAL_CHARS;
+
+  // characters shown per line, derived from the global `typed` count
+  let remaining = typed;
+  const shownLines = NAME_LINES.map(line => {
+    const take = Math.max(0, Math.min(line.length, remaining));
+    remaining -= line.length;
+    return line.slice(0, take);
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,8 +94,17 @@ export default function Header() {
           alt="Nikhil Anil Prakash"
           className="header-photo"
         />
-        <h1 className="header-name">Nikhil</h1>
-        <h1 className="header-name">Anil Prakash</h1>
+        {/* full name for assistive tech / crawlers; visual lines are animated */}
+        <span className="sr-only">Nikhil Anil Prakash</span>
+        {NAME_LINES.map((line, i) => (
+          <h1 key={i} className="header-name header-name-tw" aria-hidden="true">
+            {shownLines[i]}
+            {((!typingDone && active === i) ||
+              (typingDone && i === NAME_LINES.length - 1)) && (
+              <span className="tw-cursor">█</span>
+            )}
+          </h1>
+        ))}
         <h2 className="header-title">Software Engineer</h2>
       </div>
 

@@ -1,25 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ═══════════════════════════════════════════════════════════════
-   Swiss / editorial design system
-   Paper canvas · ink type · single red accent · grotesk display
+   Swiss / editorial design system — dark base
+   Warm near-black canvas · light type · single red accent · grotesk
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
   /* Surfaces */
-  --paper:      #e3dccc;   /* deeper warm sand canvas */
-  --paper-2:    #eee8da;   /* raised card (lighter than canvas) */
-  --ink:        #14130f;   /* near-black text */
-  --ink-soft:   #6b665c;   /* muted / meta text */
-  --ink-faint:  #9a948a;   /* faintest labels */
+  --paper:      #14130f;   /* warm near-black canvas */
+  --paper-2:    #1d1b16;   /* raised card (lighter than canvas) */
+  --ink:        #ece5d6;   /* warm light text */
+  --ink-soft:   #a39d90;   /* muted / meta text */
+  --ink-faint:  #6c675d;   /* faintest labels */
 
   /* Lines */
-  --line:        rgba(20, 19, 15, 0.14);
-  --line-strong: rgba(20, 19, 15, 0.32);
+  --line:        rgba(236, 229, 214, 0.14);
+  --line-strong: rgba(236, 229, 214, 0.32);
 
   /* Accent */
-  --accent:     #e2362d;   /* Swiss red */
+  --accent:     #f0463d;   /* Swiss red, brightened for dark */
   --accent-ink: #ffffff;
+
+  /* Hard-offset (brutalist) drop shadow — deep black so it reads on dark */
+  --shadow:     rgba(0, 0, 0, 0.55);
 
   /* Type */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -34,6 +37,7 @@
   font-weight: 400;
   color: var(--ink);
   background-color: var(--paper);
+  color-scheme: dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

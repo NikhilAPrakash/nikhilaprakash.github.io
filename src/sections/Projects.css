@@ -209,7 +209,7 @@
   border: 1px solid var(--ink);
   border-radius: 0;
   padding: 2.4rem 2.4rem;
-  box-shadow: 16px 16px 0 rgba(20, 19, 15, 0.12);
+  box-shadow: 16px 16px 0 var(--shadow);
   overflow-y: auto;
   color: var(--ink);
 
